@@ -2,7 +2,7 @@ const generateButton = document.getElementById('btn');
 const backgroundColor = document.querySelector('.container');
 const showColorCodes = backgroundColor.querySelector('.color-codes');
 
-let randomColor;
+let color = '';
 
 //coping the colors to the clipboard
 function copyToClipboard() {
@@ -32,16 +32,19 @@ function copyToClipboard() {
   }
 }
 
-// button click event for generating new color codes
-generateButton.addEventListener('click', function () {
-  let colors = [];
-
-  for (let i = 0; i < 3; i++) {
-    colors.push(Math.floor(Math.random() * 255));
+// generate a random hex color
+function generateRandomHexColor() {
+  let selectColorCodes = '0123456789ABCDEF';
+  let colorTagStart = '#';
+  for (let i = 0; i < 6; i++) {
+    colorTagStart += selectColorCodes[Math.floor(Math.random() * 16)];
   }
-  randomColor = 'rgb(' + colors.join(',') + ')';
-  backgroundColor.style.backgroundColor = randomColor;
-  showColorCodes.textContent = randomColor;
-});
+  color = colorTagStart;
+  showColorCodes.textContent = colorTagStart;
+  backgroundColor.style.backgroundColor = colorTagStart;
+  return colorTagStart;
+}
 
+// button click events
+generateButton.addEventListener('click', generateRandomHexColor);
 showColorCodes.addEventListener('click', copyToClipboard);

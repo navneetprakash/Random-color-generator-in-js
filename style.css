@@ -62,19 +62,20 @@ ul {
 }
 
 #btn {
+  color: #fff;
   width: 15rem;
   height: 3rem;
-  background: black;
   border: none;
-  transition: all 0.2s;
-  color: #fff;
+  background: rgb(20, 20, 20);
+  transition: 0.2s all ease-in-out;
+  border: 0.2rem solid rgb(20, 20, 20);
 }
 
 #btn:hover {
-  border: 0.1rem solid rgb(20, 20, 20);
-  color: rgb(20, 20, 20);
-  background: transparent;
   cursor: pointer;
+  background: transparent;
+  color: rgb(20, 20, 20);
+  border: 0.2rem solid rgb(20, 20, 20);
 }
 
 footer {
